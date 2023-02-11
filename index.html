@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffre Villa #1</title>
+    <link rel="stylesheet" href="coffre.css">
+  </head>
+  <body>
+    <div class="container">
+  
+        <h2>Villa #1<small>Coffre</small></h2>
+        
+          
+          <div class="group">      
+            <input type="text" id="item" value="**+255** Coke" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Nom de l'item</label>
+          </div>
+            
+          <div class="group">      
+            <input type="text" id="username" value="Ken Miller" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Nom de la personne</label>
+          </div>
+          
+          <div class="group">      
+            <input type="text" id="url" value="https://cdn.discordapp.com/attachments/1066029136893714462/1074017275125960785/image.png" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Lien de l'image (lien discord)</label>
+          </div>
+          
+          <button onclick="sendMessage()"> Envoyer </button>
+          
+        
+      </div>
+  </body>
+
+  <script>
+    function sendMessage() {
+      var request = new XMLHttpRequest();
+      request.open("POST", "https://discord.com/api/webhooks/1074004331340247130/H3o9vyo6NzZk67Eb3cxLLd71BTSmzh9TWZT0GhARC9yrY6XbyxKlJ_ScFAb_UPViYRo9");
+
+      request.setRequestHeader('Content-type', 'application/json');
+      var usernamebis = document.getElementById("username").value;
+      var itembis = document.getElementById("item").value;
+      var urlbis = document.getElementById("url").value;
+      var params = {
+        username: "Coffre Villa #1",
+        avatar_url: "",
+        embeds: [{ "title": usernamebis, "description": itembis, "color": 5814783, "image": {"url": urlbis}}]}
+        request.send(JSON.stringify(params));
+    }
+  </script>
+</html>
